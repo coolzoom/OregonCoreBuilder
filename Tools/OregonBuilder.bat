@@ -60,9 +60,9 @@ echo.
 echo ID.....[NAME]...........[BRANCH].....[DESCRIPTION]
 echo.
 echo 1 - OregonCore          (master)     active master branch
-echo 2 - OregonCore          (Eluna)      w/ Eluna Support
-echo 3 - OregonCore          (CFBG)       w/ Cross-Faction BattleGround
-echo 4 - OregonCore          (ElunaCFBG)  w/ Eluna+CFBG
+REM echo 2 - OregonCore          (Eluna)      w/ Eluna Support
+REM echo 3 - OregonCore          (CFBG)       w/ Cross-Faction BattleGround
+REM echo 4 - OregonCore          (ElunaCFBG)  w/ Eluna+CFBG
 echo 5 - OregonCore          (master)     Original OregonCore
 echo 6 - OregonCore          (Patch)      few fun patches
 echo.
@@ -239,7 +239,7 @@ if "%id%"=="1" (set branch=master)
 
 if "%id%"=="2" (set sourcepath="OregonCoreEluna")
 if "%id%"=="2" (set repo=https://github.com/talamortis/OregonCore.git)
-if "%id%"=="2" (set branch=Eluna)
+if "%id%"=="2" (set branch=master)
 
 if "%id%"=="3" (set sourcepath="OregonCoreCFBG")
 if "%id%"=="3" (set repo=https://github.com/talamortis/OregonCore.git)
@@ -391,7 +391,7 @@ echo.
 echo.
 echo Generate cmake...
 echo.
-"%mainfolder%\Tools\cmake\%cmake%\bin\cmake.exe" "%mainfolder%/Source/%sourcepath%" -G "Visual Studio 15 2017%arch%" -DOPENSSL_ROOT_DIR="%mainfolder%/Tools/openssl/%openssl%-%archpath%" -DOPENSSL_INCLUDE_DIR="%mainfolder%/Tools/openssl/%openssl%-%archpath%/include" -DMYSQL_LIBRARY="%mainfolder%/Tools/database/%mariadb%-%archpath%/lib/libmysql.lib" -DMYSQL_INCLUDE_DIR="%mainfolder%/Tools/database/%mariadb%-%archpath%/include/mysql" -DGIT_EXECUTABLE="%mainfolder%/Tools/Git/bin/git.exe" -DTOOLS=1 -DSCRIPT_LIB_ELUNA=0 -DELUNA=0 -DBUILD_EXTRACTORS=1 -DWITH_CPR=1 -DWITH_DYNAMIC_LINKING=%dynamic_linking% -DSCRIPTS=static -DWITH_WARNINGS=0
+"%mainfolder%\Tools\cmake\%cmake%\bin\cmake.exe" "%mainfolder%/Source/%sourcepath%" -G "Visual Studio 15 2017%arch%" -DOPENSSL_ROOT_DIR="%mainfolder%/Tools/openssl/%openssl%-%archpath%" -DOPENSSL_INCLUDE_DIR="%mainfolder%/Tools/openssl/%openssl%-%archpath%/include" -DMYSQL_LIBRARY="%mainfolder%/Tools/database/%mariadb%-%archpath%/lib/libmysql.lib" -DMYSQL_INCLUDE_DIR="%mainfolder%/Tools/database/%mariadb%-%archpath%/include/mysql" -DGIT_EXECUTABLE="%mainfolder%/Tools/Git/bin/git.exe" -DTOOLS=1 -DSCRIPT_LIB_ELUNA=0 -DELUNA=1 -DBUILD_EXTRACTORS=1 -DWITH_CPR=1 -DWITH_DYNAMIC_LINKING=%dynamic_linking% -DSCRIPTS=static -DWITH_WARNINGS=0
 echo.
 echo Start building...
 echo.
